@@ -41,8 +41,11 @@ const BlogDetail = ({ blogs, updateBlog, deleteBlog, genreImages }) => {
     };
 
     const handleDelete = () => {
-        deleteBlog(blog.title);
-        navigate('/');
+        console.log("Deleting blog with ID:", blog._id); // Log the ID being deleted
+        if (window.confirm('Are you sure you want to delete this blog?')) {
+            deleteBlog(blog._id); // Use the blog ID here
+            navigate('/');
+        }
     };
 
     const handleSaveEdit = () => {
